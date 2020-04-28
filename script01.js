@@ -1,21 +1,10 @@
-function entrar() {
-    var area = document.getElementById('area');
-    var texto = prompt('Digite seu nome ?');
-    if (texto === '') {
-        alert('Digite seu nome!!');
-        area.innerHTML = 'Então bem vindo...';
-    } else {
-        area.innerHTML = texto;
-    }
+var x = 0;
+while (x < 10) {
+    document.write('</br> O valor de X é ' + x);
+    x++;
 }
 
-function entrar2(nome) {
-    var area = document.getElementById('area2');
-    var sobrenome = prompt('Digite seu sobrenome ?');
-    if (sobrenome === '') {
-        alert('Digite seu nome!!');
-        area.innerHTML = 'Então bem vindo ' + nome;
-    } else {
-        area.innerHTML = 'Então bem vindo ' + nome + sobrenome;
-    }
+for(var i=0;i<10;i++){
+    document.write('</br> O valor de i é ' + i);
+
 }
