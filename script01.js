@@ -1,6 +1,9 @@
-function acao() {
-    document.write('Executando...<br/>');
+// var nome = localStorage.setItem('letraa','aa');
+// console.log(nome);
+if (typeof localStorage.letra === 'undefined') {
+    localStorage.letra = prompt('Digite uma letra:');
 }
-var timer = setInterval(acao,2000);
+var nome='';
+nome = localStorage.letra;
 
-// setTimeout(acao,2000);
+document.getElementById('nome').innerHTML = nome;
