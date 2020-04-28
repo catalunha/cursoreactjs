@@ -5,8 +5,16 @@
         <script type="text/javascript" src="./script01.js"></script>
     </head>
     <body>
-        <h1>Aprendendo Javascript</h1>
-        <button onclick="window.location.href='./contato.html';">Ir ao site 02</button>
-        <button onclick="window.location.href=window.location.href">Atualize a pagina</button>
+        <div id='area'>
+            Bem vindo...
+        </div>
+        <br/>
+        <button onclick="document.getElementById('area').innerHTML='Olá '+prompt('Qual seu nome ?')">Entrar</button>
+        <div id='area'>
+            Bem vindo...
+        </div>
+        <br/>
+        <button onclick="this.innerHTML=prompt('Qual o nome ?')">Entrar</button>
+
     </body>
 </html>
