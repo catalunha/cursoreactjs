@@ -1,9 +1,9 @@
-// var nome = localStorage.setItem('letraa','aa');
-// console.log(nome);
-if (typeof localStorage.letra === 'undefined') {
-    localStorage.letra = prompt('Digite uma letra:');
+function cadastroPessoa(info) {
+    let novosDados = {
+        ...info,
+        cargo: 'cc',
+        status: 1,
+    };
+    return novosDados;
 }
-var nome='';
-nome = localStorage.letra;
-
-document.getElementById('nome').innerHTML = nome;
+console.log(cadastroPessoa({ nome: 'aa', snome: 'bb', anoInicio: 2021 }));
