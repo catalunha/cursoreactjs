@@ -1,4 +1,30 @@
 import React from 'react';
+//criando componente
+const BemVindo = (props) => {
+    return (
+        <div>
+            <h2>Bem vindo {props.nome} com {props.idade}</h2>
+        </div>
+
+    );
+}
+
+function App() {
+    return (
+        <div>
+            Olá Mundo 1 !
+            <BemVindo nome='aa' idade='10'/>
+            <h1>
+                Curso react.
+            </h1>
+        </div>
+    );
+}
+
+export default App;
+
+
+
 // import logo from './logo.svg';
 // import './App.css';
 
@@ -22,11 +48,3 @@ import React from 'react';
 //     </div>
 //   );
 // }
-
-function App() {
-    return (<h1>
-        Olá Mundo 3 !
-    </h1>);
-}
-
-export default App;
