@@ -1,53 +1,38 @@
 import React, { Component } from 'react';
-import './estilo.css';
-
+import './style.css';
+//https://sujeitoprogramador.com/rn-api/?api=posts
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            numero: 0,
-            txtVai: 'Iniciar'
+            nutri: [],
         };
-        this.timer = null;
-        this.vai = this.vai.bind(this);
-        this.limpar = this.limpar.bind(this);
     }
-    vai() {
-        let state = this.state;
-        if (this.timer !== null) {
-            state.txtVai = 'Continuar';
-            clearInterval(this.timer);
-            this.timer = null;
-        } else {
-            this.timer = setInterval(() => {
-                state.numero += 0.1;
-                this.setState(state);
-            }, 100);
-            state.txtVai = 'Pausar';
-        }
-        this.setState(state);
-
-    }
-    limpar() {
-        let state = this.state;
-        if (this.timer !== null) {
-            clearInterval(this.timer);
-            this.timer = null;
-        }
-        state.numero = 0;
-        state.txtVai = 'Iniciar';
-        this.setState(state);
-
+    componentDidMount() {
+        let url = 'https://sujeitoprogramador.com/rn-api/?api=posts';
+        fetch(url).then((response) => response.json()).then((json) => {
+            let state = this.state;
+            state.nutri = json;
+            this.setState(state);
+            console.log(this.state.nutri);
+        });
     }
     render() {
         return (
             <div className='container'>
-                <img src={require('./assets/cronometro.png')} className='img' />
-                <a className='timer'>{this.state.numero.toFixed(1)}</a>
-                <div className='btns'>
-                    <a className='btn' onClick={this.vai}>{this.state.txtVai}</a>
-                    <a className='btn' onClick={this.limpar}>Limpar</a>
-                </div>
+                <header>
+                    <strong>React Nutri</strong>
+                </header>
+                {this.state.nutri.map((item) => {
+                    return (
+                        <article key={item.id} className='post'>
+                            <strong className='titulo'>{item.titulo}</strong>
+                            <img src={item.capa} className='img'/>
+                            <p className='subtitulo'>{item.subtitulo}</p>
+                            <a href='#' className='botao'>Acessar</a>
+                        </article>
+                    );
+                })}
             </div>
         );
     }
