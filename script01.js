@@ -1,21 +1,7 @@
-// function adicionar(...num) {
-//     let total = num.reduce(function (total, prox) {
-//         return total + prox;
-//     });
-//     console.log(total);
-// }
-// adicionar(1, 2, 3);
+// let nomes = ['aa','bb','cc'];
+// console.log(nomes.some(nome=> nome==='aa'));
 
-// function adicionar(...num) {
-//     let total = num.reduce((total, prox) => {
-//         return total + prox;
-//     });
-//     console.log(total);
-// }
-// adicionar(1, 2, 3);
-
-function adicionar(...num) {
-    let total = num.reduce((total, prox) => total + prox);
-    console.log(total);
-}
-adicionar(1, 2, 3);
+let nomes = [{ nome: 'aa', pos: 10 }, { nome: 'bb', pos: 20 }];
+console.log(nomes);
+console.log(nomes.every(nome => nome.pos >= 15));
+ console.log(nomes.some(nome => nome.pos >= 15));
