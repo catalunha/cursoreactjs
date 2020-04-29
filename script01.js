@@ -1,16 +1,24 @@
-const lista = [1, 2, 3];
+// function adicionar(...num) {
+//     let total = num.reduce(function (total, prox) {
+//         return total + prox;
+//     });
+//     console.log(total);
+// }
 
-let novaLista = lista.map(function (item, index) {
-    return item + index;
-});
-console.log(novaLista);
+// adicionar(1, 2, 3);
 
-let soma = lista.reduce(function (total,next) {
-   return total + next; 
-});
-console.log(soma);
+// function adicionar(...num) {
+//     let total = num.reduce((total, prox) => {
+//         return total + prox;
+//     });
+//     console.log(total);
+// }
 
-let achei = lista.find(function (item) {
-   return item === 2; 
-});
-console.log(achei);
+// adicionar(1, 2, 3);
+
+function adicionar(...num) {
+    let total = num.reduce((total, prox) => total + prox);
+    console.log(total);
+}
+
+adicionar(1, 2, 3);
