@@ -1,9 +1,7 @@
-function cadastroPessoa(info) {
-    let novosDados = {
-        ...info,
-        cargo: 'cc',
-        status: 1,
-    };
-    return novosDados;
+function cadastrar(usuarios,...novos) {
+    let total = [...usuarios,...novos]
+    console.log(total);
 }
-console.log(cadastroPessoa({ nome: 'aa', snome: 'bb', anoInicio: 2021 }));
+let usuarios=['aa','bb'];
+
+let novos = cadastrar(usuarios,'cc','dd');
