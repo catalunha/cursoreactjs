@@ -1,22 +1,51 @@
 import React from 'react';
 //criando componente
-const BemVindo = (props) => {
+const Equipe = (props) => {
     return (
         <div>
-            <h2>Bem vindo {props.nome} com {props.idade}</h2>
+            <Sobre
+                nome={props.nome}
+                cargo={props.cargo}
+                idade={props.idade}
+            />
+            <Social fb={props.facebook} />
+            <hr />
         </div>
 
     );
 }
+const Sobre = (props) => {
+    return (
+        <div>
+            <h2>
+                Olá sou o {props.nome}
+            </h2>
+            <h2>
+                Cargo: {props.cargo}
+            </h2>
+            <h2>
+                Idade: {props.idade}
+            </h2>
+        </div>
 
+    );
+}
+const Social = (props) => {
+    return (
+        <div>
+            <a href={props.fb}>Facebook </a>
+        </div>
+
+    );
+}
 function App() {
     return (
         <div>
-            Olá Mundo 1 !
-            <BemVindo nome='aa' idade='10'/>
             <h1>
-                Curso react.
+                Conheça nossa equipe:
             </h1>
+            <Equipe nome='aa' cargo='bb' idade='10' facebook='https://www.google.com.br/' />
+            <Equipe nome='aa2' cargo='bb2' idade='11' />
         </div>
     );
 }
