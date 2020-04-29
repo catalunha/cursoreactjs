@@ -1,37 +1,53 @@
 import React, { Component } from 'react';
 import './estilo.css';
+
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            textoFrase: '',
+            numero: 0,
+            txtVai: 'Iniciar'
         };
-        this.frases = ['aa', 'bb', 'cc'];
-        this.abrir = this.abrir.bind(this);
+        this.timer = null;
+        this.vai = this.vai.bind(this);
+        this.limpar = this.limpar.bind(this);
     }
-    abrir() {
+    vai() {
         let state = this.state;
-        let numQq = Math.floor(Math.random()*this.frases.length);
-        state.textoFrase = this.frases[numQq];
+        if (this.timer !== null) {
+            state.txtVai = 'Continuar';
+            clearInterval(this.timer);
+            this.timer = null;
+        } else {
+            this.timer = setInterval(() => {
+                state.numero += 0.1;
+                this.setState(state);
+            }, 100);
+            state.txtVai = 'Pausar';
+        }
         this.setState(state);
+
+    }
+    limpar() {
+        let state = this.state;
+        if (this.timer !== null) {
+            clearInterval(this.timer);
+            this.timer = null;
+        }
+        state.numero = 0;
+        state.txtVai = 'Iniciar';
+        this.setState(state);
+
     }
     render() {
         return (
             <div className='container'>
-                <img src={require('./assets/biscoito.png')} className='img' />
-                <Botao nome='Abrir biscoito' acaoBtn={this.abrir} />
-                <h3 className='frase'>Frase: "{this.state.textoFrase}"</h3>
-            </div>
-
-        );
-    }
-}
-
-class Botao extends Component {
-    render() {
-        return (
-            <div>
-                <button onClick={this.props.acaoBtn}>{this.props.nome}</button>
+                <img src={require('./assets/cronometro.png')} className='img' />
+                <a className='timer'>{this.state.numero.toFixed(1)}</a>
+                <div className='btns'>
+                    <a className='btn' onClick={this.vai}>{this.state.txtVai}</a>
+                    <a className='btn' onClick={this.limpar}>Limpar</a>
+                </div>
             </div>
         );
     }
