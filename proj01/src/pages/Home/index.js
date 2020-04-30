@@ -33,7 +33,7 @@ class Home extends Component {
                   {filme.nome}
                 </strong>
                 <img src={filme.foto} alt='...'></img>
-                <Link to='/'>Acessar</Link>
+                <Link to={`/filme/${filme.id}`}>Acessar</Link>
               </article>
             )
           })}
