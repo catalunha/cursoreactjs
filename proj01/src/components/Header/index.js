@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import './index.css'
 import {Link} from 'react-router-dom'
 class Header extends Component {
     render() {
         return (
-            <div>
-                Header do Projeto |
-                <Link to='/'>Home</Link> |
-                <Link to='/sobre'>Sobre</Link>
-                <hr/>
+            <div className='header' >
+                <Link to='/'>Filmes</Link>
             </div>
         );
     }
 }
 
-export default Header;
+export default Header

@@ -1,15 +1,10 @@
 import React, { Component } from 'react'
-// import Header from './components/Header'
-// import Home from './pages/Home'
-// import Sobre from './pages/Sobre'
+import './style.css'
 import Routes from './routes'
 class App extends Component {
     render() {
         return (
-            <div>
-                {/* <Header/> */}
-                {/* <Home/>
-                <Sobre/> */}
+            <div className='app'>
                 <Routes/>
             </div>
         );
@@ -17,3 +12,5 @@ class App extends Component {
 }
 
 export default App
+
+// https://sujeitoprogramador.com/r-api/?api=filmes/
